@@ -4,6 +4,7 @@ namespace Example\Doctrine;
 require __DIR__ . '/../bootstrap.php';
 
 $conn = ConnectionManager::getConnection();
+$conn->beginTransaction();
 
 $res = $conn->insert('xxx', ['no' => 4]);
 p('insert', $res);
