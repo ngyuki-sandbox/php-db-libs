@@ -31,3 +31,32 @@ function e($msg, callable $callable)
 
     p($msg, $ret);
 }
+
+function dump_parentheses($sql)
+{
+    $ws = "";
+
+    while (strlen($sql)) {
+        if (preg_match('/[()]/', $sql, $m) == 0) {
+            echo $ws . $sql . PHP_EOL;
+            $sql = "";
+            continue;
+        }
+        $c = $m[0];
+        list ($pre, $sql) = explode($c, $sql, 2);
+
+        if ($c === '(') {
+            if (trim($pre)) {
+                echo $ws . trim($pre) . PHP_EOL;
+            }
+            echo $ws . $c . PHP_EOL;
+            $ws .= "  ";
+        } else {
+            if (trim($pre)) {
+                echo $ws . trim($pre) . PHP_EOL;
+            }
+            $ws = substr($ws, 2);
+            echo $ws . $c . PHP_EOL;
+        }
+    }
+}
