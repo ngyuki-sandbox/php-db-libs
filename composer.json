@@ -1,0 +1,11 @@
+{
+    "require": {
+        "doctrine/dbal": "*",
+        "zendframework/zend-db": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Example\\": "src/"
+        }
+    }
+}

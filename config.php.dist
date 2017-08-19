@@ -1,0 +1,7 @@
+<?php
+return [
+    'host' => getenv('MYSQL_HOST') ?: '127.0.0.1',
+    'dbname' => getenv('MYSQL_DATABASE') ?: 'test',
+    'user' => getenv('MYSQL_USER') ?: 'ore',
+    'password' => getenv('MYSQL_PASSWORD') ?: 'pass',
+];
