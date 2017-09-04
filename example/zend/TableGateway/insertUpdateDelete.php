@@ -1,7 +1,7 @@
 <?php
 namespace Example\Zend;
 
-require __DIR__ . '/../bootstrap.php';
+require __DIR__ . '/../../bootstrap.php';
 
 use Zend\Db\Sql\Where;
 use Zend\Db\TableGateway\TableGateway;

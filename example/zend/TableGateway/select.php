@@ -1,7 +1,7 @@
 <?php
 namespace Example\Zend;
 
-require __DIR__ . '/../bootstrap.php';
+require __DIR__ . '/../../bootstrap.php';
 
 use Zend\Db\ResultSet\ResultSet;
 use Zend\Db\TableGateway\TableGateway;
@@ -48,10 +48,3 @@ p("select()", $rows);
 foreach ($rows as $row) {
     p("select()->foreach()", $row);
 }
-
-///
-
-h("TableGateway missing column");
-
-$table = new TableGateway('xxx', $db, null, new MyResultSet());
-e('insert()', function () use ($table) { $table->insert(['no' => 123, 'xxx' => 999]); });

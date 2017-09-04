@@ -1,7 +1,7 @@
 <?php
 namespace Example\Zend;
 
-require __DIR__ . '/../bootstrap.php';
+require __DIR__ . '/../../bootstrap.php';
 
 use Zend\Db\TableGateway\TableGateway;
 
@@ -9,12 +9,15 @@ $db = DbManager::getAdapter();
 
 $table = new TableGateway('xxx', $db);
 
+h("TableGateway selectWith");
+
 $select = $table->getSql()->select();
 $select->columns(['id'])->where->equalTo('id', 2);
 
 $rows = $table->selectWith($select);
-var_dump(get_class($rows)); // Zend\\Db\\ResultSet\\ResultSet
+p('selectWith()', $rows);
 
 foreach ($rows as $row) {
-    var_dump($row); // ArrayObject ['id' => 2]
+    /* @var $row \ArrayObject */
+    p('selectWith().foreach()', $row);
 }
